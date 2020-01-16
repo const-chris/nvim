@@ -232,6 +232,3 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
-
-au BufReadPost *.rkt set filetype=racket
-au FileType racket nmap <Leader>rr :!racket %<CR>

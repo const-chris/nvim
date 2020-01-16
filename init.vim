@@ -78,8 +78,13 @@ map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " arrow keys
-" noremap <Up> line(".")==1 ? '0':'ddkP'
-noremap <Up> ddkP
+function Up()
+  if line('.') != 1
+    normal ddkP
+  endif
+endfunction
+
+noremap <Up> :call Up()<CR>
 noremap <Down> ddp
 noremap <Left> <Nop>
 noremap <Right> <Nop>

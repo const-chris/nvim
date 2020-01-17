@@ -255,6 +255,11 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>]] :bn<cr>
 nnoremap <leader>[[ :bp<cr>
 
+iabbrev ture true
+iabbrev Ture True
+iabbrev flase false
+iabbrev Flase False
+
 " utility for abbreviations: allows ignoring of space character
 func Eatchar(pat)
   let c = nr2char(getchar(0))

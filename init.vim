@@ -34,6 +34,7 @@ let mapleader=','
 let maplocalleader=' '
 
 " line numbers
+set numberwidth=6
 set number relativenumber
 augroup numbertoggle
   autocmd!
@@ -62,8 +63,8 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 
 " default tab spacing
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set softtabstop=2
 set expandtab
 

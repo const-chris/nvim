@@ -251,6 +251,10 @@ inoremap jk <esc>
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+nnoremap <leader>]] :bn<cr>
+nnoremap <leader>[[ :bp<cr>
+
 " utility for abbreviations: allows ignoring of space character
 func Eatchar(pat)
   let c = nr2char(getchar(0))

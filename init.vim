@@ -87,10 +87,14 @@ function Up()
   endif
 endfunction
 
-noremap <Up> :call Up()<CR>
-noremap <Down> ddp
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+noremap <up> :call Up()<cr>
+noremap <down> ddp
+noremap <left> <nop>
+noremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 

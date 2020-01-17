@@ -31,6 +31,8 @@ call plug#end()
 colorscheme OceanicNext
 
 let mapleader=','
+let maplocalleader=' '
+
 " line numbers
 set number relativenumber
 augroup numbertoggle

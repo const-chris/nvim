@@ -248,6 +248,9 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 inoremap <C-u> <esc>viwUea
 inoremap <esc> <nop>
 inoremap jk <esc>
+
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 " utility for abbreviations: allows ignoring of space character
 func Eatchar(pat)
   let c = nr2char(getchar(0))

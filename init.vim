@@ -242,3 +242,8 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 
 inoremap <C-u> <esc>viwUea
+" utility for abbreviations: allows ignoring of space character
+func Eatchar(pat)
+  let c = nr2char(getchar(0))
+  return (c =~ a:pat) ? '' : c
+endfunc

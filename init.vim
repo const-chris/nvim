@@ -1,90 +1,91 @@
+" vim-plug {{{
 if empty(glob('/Users/christopherschroeder/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" vim-plug section
 call plug#begin('/Users/christopherschroeder/.vim/bundle')
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-commentary'
-  Plug 'w0rp/ale'
-  Plug 'neovimhaskell/haskell-vim'
-  Plug 'alx741/vim-hindent'
-  Plug 'mhinz/neovim-remote'
-  Plug 'lervag/vimtex'
-  Plug 'wlangstroth/vim-racket'
-  Plug 'vim-airline/vim-airline'
-  Plug 'neoclide/coc.nvim'
-  Plug 'scrooloose/nerdtree'
-  Plug 'airblade/vim-gitgutter'
-    let g:gitgutter_sign_added = '+'
-    let g:gitgutter_sign_modified = '𝜹'
-    let g:gitgutter_sign_removed = '✘'
-    let g:gitgutter_sign_removed_first_line = '^^'
-    let g:gitgutter_sign_modified_removed = 'ww'
-  Plug 'terryma/vim-smooth-scroll'
-  Plug 'mhartington/oceanic-next'
-  Plug 'ryanoasis/vim-devicons'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+    Plug 'w0rp/ale'
+    Plug 'neovimhaskell/haskell-vim'
+    Plug 'alx741/vim-hindent'
+    Plug 'mhinz/neovim-remote'
+    Plug 'lervag/vimtex'
+    Plug 'wlangstroth/vim-racket'
+    Plug 'vim-airline/vim-airline'
+    Plug 'neoclide/coc.nvim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'airblade/vim-gitgutter'
+        let g:gitgutter_sign_added = '+'
+        let g:gitgutter_sign_modified = '𝜹'
+        let g:gitgutter_sign_removed = '✘'
+        let g:gitgutter_sign_removed_first_line = '^^'
+        let g:gitgutter_sign_modified_removed = 'ww'
+    Plug 'terryma/vim-smooth-scroll'
+    Plug 'mhartington/oceanic-next'
+    Plug 'ryanoasis/vim-devicons'
 call plug#end()
+" }}}
 
 colorscheme OceanicNext
 
+" leader remap {{{
 let mapleader=','
+noremap \ ,
 let maplocalleader=' '
+" }}}
 
-" line numbers
+" line numbers {{{
 set numberwidth=6
 set number relativenumber
 augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+" }}}
 
-" vimtex
-let g:tex_flavor  = 'latex'
-let g:tex_conceal = ''
-let g:vimtex_fold_manual = 1
-let g:vimtex_latexmk_continuous = 1
-let g:vimtex_compiler_progname = 'nvr'
-
-" Nerdtree
+" nerdtree {{{
 noremap <Leader><Leader> :NERDTreeToggle<CR>
+" }}}
 
-" Airline settings
+" airline {{{
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
+" }}}
 
-" default tab spacing
+" default tab spacing {{{
 set tabstop=4
 set shiftwidth=4
 set softtabstop=2
 set expandtab
+" }}}
 
 set foldcolumn=0
 set hls
 set history=200
 
+" %% expands to the path of the active buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-noremap \ ,
 noremap <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 noremap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 noremap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 noremap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-" arrow keys
+" arrow keys {{{
 function Up()
-  if line('.') != 1
-    normal ddkP
-  endif
+    if line('.') != 1
+        normal ddkP
+    endif
 endfunction
 
 noremap <up> :call Up()<cr>
@@ -95,6 +96,7 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+" }}}
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
@@ -106,17 +108,19 @@ set lazyredraw
 set termguicolors " enable 24bit colors
 set dictionary+=/usr/share/dict/words
 
-" nontext characters
+" nontext characters {{{
 set list
 set listchars=eol:¬,tab:▏\ ,trail:▅,nbsp:⎵
+" }}}
 
-" smooth scroll
+" smooth scroll {{{
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 15, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 15, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 15, 2)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 15, 2)<CR>
+" }}}
 
-" --- CoC suggested config  ---
+" CoC suggested config {{{
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -139,14 +143,14 @@ set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
@@ -172,11 +176,11 @@ nnoremap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 " Highlight symbol under cursor on CursorHold
@@ -190,11 +194,11 @@ xnoremap <leader>f  <Plug>(coc-format-selected)
 nnoremap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
@@ -244,24 +248,32 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
+" }}}
 
 inoremap <C-u> <esc>viwUea
 inoremap <esc> <nop>
 inoremap jk <esc>
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>:nohlsearch<CR>
 
 nnoremap <leader>]] :bn<cr>
 nnoremap <leader>[[ :bp<cr>
 
+" abbreviations {{{
 iabbrev ture true
 iabbrev Ture True
 iabbrev flase false
 iabbrev Flase False
 
+cabbrev W w
+" }}}
+
+" Eatchar() {{{
 " utility for abbreviations: allows ignoring of space character
-func Eatchar(pat)
-  let c = nr2char(getchar(0))
-  return (c =~ a:pat) ? '' : c
-endfunc
+function! Eatchar(pat)
+    let c = nr2char(getchar(0))
+    return (c =~ a:pat) ? '' : c
+endfunction
+" }}}
+

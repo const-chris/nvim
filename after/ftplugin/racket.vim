@@ -1,4 +1,7 @@
 nnoremap <Leader>rr :!racket %<cr>
+nnoremap <Leader>i :call Indent()<cr>
+
+au BufWritePre <buffer> call Indent()
 
 iabbrev def (define
 iabbrev dis (display

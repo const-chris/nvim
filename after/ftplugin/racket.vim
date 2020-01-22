@@ -1,4 +1,4 @@
-nmap <Leader>rr :!racket %<CR>
+nnoremap <Leader>rr :!racket %<cr>
 
 iabbrev def (define
 iabbrev dis (display

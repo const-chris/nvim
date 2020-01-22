@@ -72,6 +72,7 @@ set expandtab
 set foldcolumn=0
 set hls
 set history=200
+set linebreak
 
 " %% expands to the path of the active buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'

@@ -316,3 +316,6 @@ function! Indent()
     call Preserve('normal gg=G')
 endfunction
 " }}}
+
+" search with verymagic
+nnoremap / /\v

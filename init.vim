@@ -52,6 +52,7 @@ noremap <Leader><Leader> :NERDTreeToggle<CR>
 " }}}
 
 " airline {{{
+let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif

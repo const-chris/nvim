@@ -78,10 +78,12 @@ set linebreak
 " %% expands to the path of the active buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" edit current buffer in another window/split/tab {{{
 noremap <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
-noremap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
-noremap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
-noremap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>sp :sp <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>vs :vsp <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>tab :tabe <C-R>=expand("%:p:h") . "/" <CR>
+" }}}
 
 " arrow keys {{{
 function Up()

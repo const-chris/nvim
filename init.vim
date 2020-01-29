@@ -256,8 +256,10 @@ inoremap <C-u> <esc>viwUea
 inoremap <esc> <nop>
 inoremap jk <esc>
 
+" quick edit $MYVIMRC {{{
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>:nohlsearch<CR>
+nnoremap <leader>sv :source $MYVIMRC<cr>:nohlsearch<cr>:echom "sourced " . fnamemodify(expand($MYVIMRC), ":~")<cr>
+" }}}
 
 nnoremap <leader>]] :bn<cr>
 nnoremap <leader>[[ :bp<cr>

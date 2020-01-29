@@ -1,4 +1,4 @@
-nnoremap <Leader>rr :!racket %<cr>
+nnoremap <Leader>rr :w<cr>:!racket %<cr>
 nnoremap <Leader>i :call Indent()<cr>
 
 au BufWritePre <buffer> call Indent()

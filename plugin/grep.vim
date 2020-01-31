@@ -5,7 +5,7 @@ endif
 " }}}
 
 " grep skeleton {{{
-function s:Grep(term)
+function Grep(term)
     silent execute "grep! " . shellescape(a:term) . " ."
     copen
 endfunction
@@ -26,7 +26,7 @@ function! s:GrepOperator(type)
         return
     endif
 
-    call <SID>Grep(@@)
+    call Grep(@@)
 
     let @@ = saved_unnamed_register
 endfunction
@@ -36,9 +36,9 @@ endfunction
 nnoremap <leader>/ :call <SID>GrepTerm()<cr>
 
 function! s:GrepTerm()
-    let grep_term = input("Enter " . expand(&grepprg) . " search term: ")
+    let grep_term = input("Enter " . split(expand(&grepprg))[0] . " search term: ")
     if !empty(grep_term)
-        call <SID>Grep(grep_term)
+        call Grep(grep_term)
     endif
 endfunction
 " }}}

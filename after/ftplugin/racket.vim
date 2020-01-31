@@ -19,3 +19,7 @@ iabbrev provide (#%provide
 " }}}
 
 setlocal lispwords-=if
+
+" goto  definition {{{
+nnoremap <silent> <localleader>gd :echo '<c-r><c-w>'<cr>:call Grep('\(define \(?<c-r><c-w>')<cr>
+" }}}

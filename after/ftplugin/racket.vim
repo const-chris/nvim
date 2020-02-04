@@ -15,7 +15,7 @@ iabbrev cond (cond ((<c-r>=Eatchar('\s')<cr>
 iabbrev lam (lambda (<c-r>=Eatchar('\s')<cr>
 iabbrev if (if (<c-r>=Eatchar('\s')<cr>
 iabbrev req (#%require (file
-iabbrev provide (#%provide
+iabbrev prov (#%provide
 " }}}
 
 setlocal lispwords-=if

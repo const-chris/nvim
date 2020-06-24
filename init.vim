@@ -78,18 +78,8 @@ inoremap jk <esc>
 " quick edit $MYVIMRC {{{
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-nnoremap <leader>sv :source $MYVIMRC<cr>:nohlsearch<cr>:call SourceNVim()<cr>
-
-function! SourceNVim()
-    for f in split(glob('~/.config/nvim/**/*.vim'), '\n')
-        if f == expand($MYVIMRC)
-            echom "sourced " . fnamemodify(expand($MYVIMRC), ":t:r")
-        else
-            execute 'source' f
-            echom "sourced " . fnamemodify(expand(f), ":t:r")
-        endif
-    endfor
-endfunction
+nnoremap <leader>sv :source $MYVIMRC<cr>:nohlsearch<cr>
+nnoremap <leader>sc :source %<cr>:nohlsearch<cr>
 " }}}
 
 " window navigation {{{
@@ -154,11 +144,9 @@ endfunction
 " search with verymagic
 nnoremap / /\v
 
+" escape the terminal
 tnoremap <esc> <c-\><c-n>:bd!<cr>
 tnoremap <c-w> <c-\><c-n><c-w>w
 
 " close current buffer
 nnoremap <leader>q<cr> :bd<cr>
-
-" bandaid fix for which-key + sourcing all = break O
-nnoremap <leader>o O

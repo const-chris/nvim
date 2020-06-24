@@ -1,0 +1,45 @@
+{
+    "explorer": {
+        "icon.enableNerdFont": true,
+        "previewAction.onHover": false,
+        "keyMappings": {
+            "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
+            "v": "open:vsplit"
+        },
+        "presets": {
+            "floating": {
+                "position": "floating",
+                "open-action-strategy": "sourceWindow",
+                "quit-on-open": true
+            }
+        }
+    },
+    "languageserver": {
+        "racket": {
+            "command": "languageserver.racket",
+            "filetypes": [
+                "rkt",
+                "racket"
+            ]
+        },
+        "haskell": {
+            "command": "hie-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": [
+                "stack.yaml",
+                "cabal.config",
+                "package.yaml"
+            ],
+            "filetypes": [
+                "hs",
+                "lhs",
+                "haskell"
+            ],
+            "initializationOptions": {
+                "languageServerHaskell": {
+                    "hlintOn": true
+                }
+            }
+        }
+    }
+}

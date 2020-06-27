@@ -7,3 +7,5 @@ let g:gruvbox_sign_column = 'bg0'
 let g:gruvbox_invert_signs = 1
 
 colorscheme gruvbox
+
+hi Folded guibg='bg0'

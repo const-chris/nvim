@@ -82,10 +82,25 @@ nnoremap <leader>sv :source $MYVIMRC<cr>:nohlsearch<cr>
 nnoremap <leader>sc :source %<cr>:nohlsearch<cr>
 " }}}
 
-" window navigation {{{
-nnoremap <leader>] :bn<cr>
-nnoremap <leader>[ :bp<cr>
-nnoremap <leader>. <c-w>w
+" navigation {{{
+" between buffers
+nnoremap <leader>] :bnext<cr>
+nnoremap <leader>[ :bprev<cr>
+" close current buffer
+nnoremap <leader>q<cr> :bd<cr>
+
+" between windows
+nnoremap <leader>. <C-w>w
+nnoremap <leader>h <C-w>h
+nnoremap <leader>k <C-w>k
+nnoremap <leader>j <C-w>j
+nnoremap <leader>l <C-w>l
+" close current window
+nnoremap <leader>qq <C-w>q
+
+" split window
+nnoremap <leader>s :split<Return><C-w>w
+nnoremap <leader>v :vsplit<Return><C-w>w
 " }}}
 
 " abbreviations {{{
@@ -148,5 +163,3 @@ nnoremap / /\v
 tnoremap <esc> <c-\><c-n>:bd!<cr>
 tnoremap <c-w> <c-\><c-n><c-w>w
 
-" close current buffer
-nnoremap <leader>q<cr> :bd<cr>

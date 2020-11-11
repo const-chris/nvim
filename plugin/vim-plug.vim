@@ -13,6 +13,7 @@ call plug#begin('/Users/christopherschroeder/.vim/bundle')
     Plug 'junegunn/gv.vim'
     Plug 'lervag/vimtex'
     Plug 'liuchengxu/vim-which-key'
+    Plug 'mbbill/undotree'
     Plug 'mhinz/neovim-remote'
     Plug 'mhinz/vim-signify'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}

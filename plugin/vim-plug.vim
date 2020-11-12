@@ -24,6 +24,5 @@ call plug#begin('/Users/christopherschroeder/.vim/bundle')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'vim-airline/vim-airline'
-    Plug 'w0rp/ale'
     Plug 'wlangstroth/vim-racket'
 call plug#end()

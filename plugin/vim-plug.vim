@@ -1,4 +1,4 @@
-if empty(glob('/Users/christopherschroeder/.vim/autoload/plug.vim'))
+if empty(glob('$HOME/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC

@@ -7,6 +7,7 @@ endif
 call plug#begin('/Users/christopherschroeder/.vim/bundle')
     Plug 'alx741/vim-hindent'
     Plug 'gruvbox-community/gruvbox'
+    Plug 'elmcast/elm-vim'
     Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
